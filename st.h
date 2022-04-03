@@ -78,6 +78,13 @@ typedef union {
 	const char *s;
 } Arg;
 
+typedef struct {
+	 uint b;
+	 uint mask;
+	 void (*func)(const Arg *);
+	 const Arg arg;
+} MouseKey;
+
 void die(const char *, ...);
 void redraw(void);
 void draw(void);
@@ -136,6 +143,7 @@ extern char *termname;
 extern unsigned int tabspaces;
 extern unsigned int defaultfg;
 extern unsigned int defaultbg;
+extern MouseKey mkeys[];
 extern const int boxdraw, boxdraw_bold, boxdraw_braille;
 extern unsigned int defaultcs;
 extern float alpha;
